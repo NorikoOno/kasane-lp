@@ -7,7 +7,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
-  <!-- Material Icons (アイコン用) -->
+  <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
   <style>
@@ -17,9 +17,9 @@
       --line: #ECEDEA;
       --text: #1F2937;
       --muted: #667085;
-      --teal: #2FA397;       /* メインアクセント */
-      --teal-weak: #E9FBF8;  /* 淡ティール */
-      --coral: #FFB86B;      /* サブアクセント */
+      --teal: #2FA397;
+      --teal-weak: #E9FBF8;
+      --coral: #FFB86B;
       --shadow: 0 8px 24px rgba(16, 24, 40, 0.1);
       --radius-lg: 16px;
     }
@@ -29,7 +29,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: "Noto Sans JP", "Inter", sans-serif;
+      font-family: "Noto Sans JP","Inter",sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -64,7 +64,7 @@
       line-height: 1.9; max-width: 700px; margin: 22px auto 0;
     }
 
-    /* 画像＋CTAを一括でセンタリング */
+    /* 画像＋CTA */
     .hero-figure{
       display: flex; flex-direction: column; align-items: center;
       gap: 18px; margin-top: 44px;
@@ -75,28 +75,34 @@
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
+    .cta-text{
+      margin: 8px 0 0; font-size: 14px; color: var(--muted); line-height: 1.7;
+    }
 
-    /* CTAボタン行 */
     .cta-row{
       display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+      margin-top: 6px;
     }
     .store-button{
       display: inline-flex; align-items: center; gap: 10px;
       padding: 14px 20px; border-radius: 12px; text-decoration: none;
       font-weight: 700; box-shadow: 0 10px 24px rgba(47,163,151,.25);
       transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+      color:#fff;
     }
     .store-button:hover{ transform: translateY(-1px); }
     .store-button svg{ width: 18px; height: 18px; }
 
     .store-button.ios{
       background: linear-gradient(180deg, var(--teal) 0%, #268B80 100%);
-      color: #fff;
     }
     .store-button.google{
-      background: #1F2937; color:#fff; /* 深いグレー */
-      box-shadow: 0 10px 24px rgba(17,24,39,.2);
+      background: #1F2937; box-shadow: 0 10px 24px rgba(17,24,39,.2);
     }
+    .cta-note{
+      margin-top: 10px; font-size: 13px; color: var(--muted); text-align: center;
+    }
+    .cta-note a{ color: var(--teal); word-break: break-all; }
 
     /* Features */
     .features{
@@ -117,7 +123,7 @@
       gap: 32px; text-align: center; align-items: stretch;
     }
     @media (max-width: 600px){
-      .feature-grid{ grid-template-columns: 1fr; } /* モバイルは1列 */
+      .feature-grid{ grid-template-columns: 1fr; }
     }
     .feature-item{
       background: var(--card); border:1px solid var(--line);
@@ -126,7 +132,6 @@
       transition: transform .2s ease, box-shadow .2s ease;
     }
     .feature-item:hover{ transform: translateY(-4px); box-shadow: 0 10px 28px rgba(16,24,40,.15); }
-
     .feature-icon{
       width: 56px; height: 56px; border-radius: 50%;
       display:flex; align-items:center; justify-content:center;
@@ -136,7 +141,6 @@
     .icon-coral{ background: var(--coral); }
     .icon-yellow{ background: #FACC15; }
     .icon-blue{ background: #3B82F6; }
-
     .material-symbols-outlined{
       font-variation-settings:'FILL' 0,'wght' 600,'GRAD' 0,'opsz' 48;
     }
@@ -146,35 +150,23 @@
     }
     .feature-item p{ font-size: 15px; color: var(--muted); line-height: 1.8; }
 
-    /* Gallery */
+    /* Gallery（横一列スクロール） */
     .gallery{ padding: 100px 0; }
     .gallery h2{
       text-align:center; font-size:clamp(26px,4vw,36px);
       margin-bottom: 48px; font-family: "Zen Kaku Gothic New","Noto Sans JP",sans-serif;
     }
-    .gallery-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
-    @media (max-width:800px){ .gallery-grid{ grid-template-columns:1fr; } }
+    .gallery-grid {
+      display: flex; justify-content: center; gap: 28px;
+      flex-wrap: nowrap; overflow-x: auto; padding-bottom: 12px;
+    }
     .screenshot{
+      max-width: 280px; flex-shrink: 0;
       border:1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow);
       transition: transform .2s ease, box-shadow .2s ease;
     }
     .screenshot:hover{ transform: scale(1.02); box-shadow: 0 12px 30px rgba(16,24,40,.16); }
-.gallery-grid {
-  display: flex;              /* grid → flex に変更 */
-  justify-content: center;    /* 中央寄せ */
-  gap: 28px;                  /* スクショの間隔 */
-  flex-wrap: nowrap;          /* 折り返さず1行に */
-  overflow-x: auto;           /* 横スクロール可能にする */
-  padding-bottom: 12px;       /* スクロールバーと余白確保 */
-}
 
-.screenshot {
-  max-width: 280px;   /* 各スクショの幅を制限 */
-  flex-shrink: 0;     /* スクロール時に潰れないように */
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-}
     /* Footer */
     footer{
       text-align:center; padding:52px 0; background: var(--card); border-top:1px solid var(--line);
@@ -198,34 +190,37 @@
         <h1>10分が、未来をつくる。</h1>
         <p>Kasaneは、10分間の英単語の暗記やピアノ練習、短い散歩など、小さな時間の積み重ねが、どのように意味のある進歩につながるかを視覚化する、ミニマリストの習慣トラッカーです。</p>
 
-<!-- 画像＋2ボタンを中央揃え -->
-<div class="hero-figure">
-  <img src="image.png" alt="Kasane hero visual" class="hero-image">
+        <!-- 画像＋CTA -->
+        <div class="hero-figure">
+          <img src="image.png" alt="Kasane hero visual" class="hero-image">
 
-  <p class="cta-text">
-    Androidアプリは現在クローズドテスト中です。<br>
-    以下のGoogleグループに参加すると、自動的にテストに参加できます。
-  </p>
+          <p class="cta-text">
+            Androidアプリは現在クローズドテスト中です。以下から参加登録してください。
+          </p>
 
-  <div class="cta-row">
-    <!-- App Store -->
-    <a href="https://apps.apple.com/us/app/kasane/id6746704374?platform=iphone"
-       class="store-button ios" aria-label="App Storeでダウンロード">
-      <!-- Appleロゴ -->
-      <svg viewBox="0 0 14 16" fill="currentColor" aria-hidden="true">
-        <path d="M10.28 8.66c.02 2.12 1.87 2.83 1.89 2.84-.02.06-.3 1.03-.98 2.04-.59.87-1.2 1.74-2.16 1.76-.95.02-1.26-.57-2.35-.57-1.09 0-1.44.55-2.35.59-.94.03-1.66-.94-2.26-1.8-1.23-1.78-2.18-5.03-.91-7.22.63-1.09 1.76-1.79 2.99-1.81.94-.02 1.83.64 2.35.64.52 0 1.63-.79 2.74-.67.47.02 1.8.19 2.65 1.43-.07.04-1.58.91-1.57 2.77zM8.87 1.52c.5-.61.84-1.45.75-2.29-.73.03-1.6.49-2.12 1.1-.47.54-.88 1.42-.77 2.25.82.06 1.64-.44 2.14-1.06z"/>
-      </svg>
-      App Storeでダウンロード
-    </a>
+          <div class="cta-row">
+            <!-- App Store -->
+            <a href="https://apps.apple.com/us/app/kasane/id6746704374?platform=iphone"
+               class="store-button ios" aria-label="App Storeでダウンロード">
+              <!-- Appleロゴ -->
+              <svg viewBox="0 0 14 16" fill="currentColor" aria-hidden="true">
+                <path d="M10.28 8.66c.02 2.12 1.87 2.83 1.89 2.84-.02.06-.3 1.03-.98 2.04-.59.87-1.2 1.74-2.16 1.76-.95.02-1.26-.57-2.35-.57-1.09 0-1.44.55-2.35.59-.94.03-1.66-.94-2.26-1.8-1.23-1.78-2.18-5.03-.91-7.22.63-1.09 1.76-1.79 2.99-1.81.94-.02 1.83.64 2.35.64.52 0 1.63-.79 2.74-.67.47.02 1.8.19 2.65 1.43-.07.04-1.58.91-1.57 2.77zM8.87 1.52c.5-.61.84-1.45.75-2.29-.73.03-1.6.49-2.12 1.1-.47.54-.88 1.42-.77 2.25.82.06 1.64-.44 2.14-1.06z"/>
+              </svg>
+              App Storeでダウンロード
+            </a>
 
-    <!-- Google Group -->
-    <a href="https://groups.google.com/g/kasane-testers"
-       class="store-button google"
-       aria-label="Googleグループに参加してクローズドテストへ">
-      Googleグループに参加してクローズドテストへ
-    </a>
-  </div>
-</div>
+            <!-- Android（クローズドテスト） -->
+            <a href="https://play.google.com/apps/testing/co.jp.isystems.task_tracker"
+               class="store-button google" aria-label="Android（クローズドテスト）">
+              Android（クローズドテスト）
+            </a>
+          </div>
+
+          <p class="cta-note">
+            ※参加後は
+            <a href="https://play.google.com/store/apps/details?id=co.jp.isystems.task_tracker" target="_blank">Google Play ストアのアプリページ</a>
+            からダウンロードできます。
+          </p>
         </div>
       </div>
     </section>
@@ -254,41 +249,3 @@
 
           <div class="feature-item">
             <div class="feature-icon icon-yellow">
-              <span class="material-symbols-outlined">trending_up</span>
-            </div>
-            <h3>長期的な成長を実感</h3>
-            <p>小さな時間の積み上げが、やがて大きな変化へ。継続のモチベーションを支えます。</p>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon icon-blue">
-              <span class="material-symbols-outlined">self_improvement</span>
-            </div>
-            <h3>マインドフルな習慣</h3>
-            <p>音楽・読書・散歩など、心を整えるルーチンに最適。雑念を減らし、集中を保てます。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery -->
-    <section class="gallery">
-      <div class="container">
-        <h2>あなたの時間が、積み重なっていく</h2>
-        <div class="gallery-grid">
-          <img src="screenshot-1.png" alt="kasane app screenshot 1" class="screenshot">
-          <img src="screenshot-2.png" alt="kasane app screenshot 2" class="screenshot">
-          <img src="screenshot-3.png" alt="kasane app screenshot 3" class="screenshot">
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <a href="https://discord.com/users/1364036443697188894">お問い合わせ</a>
-      <div class="copyright">© 2025 Kasane</div>
-    </div>
-  </footer>
-</body>
-</html>
