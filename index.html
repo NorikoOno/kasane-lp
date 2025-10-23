@@ -103,6 +103,15 @@
       margin-top: 10px; font-size: 13px; color: var(--muted); text-align: center;
     }
     .cta-note a{ color: var(--teal); word-break: break-all; }
+    .cta-text a{
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color .2s ease;
+    }
+    .cta-text a:hover{
+      color: var(--teal);
+    }
 
     /* Features */
     .features{
@@ -195,7 +204,8 @@
           <img src="image.png" alt="Kasane hero visual" class="hero-image">
 
           <p class="cta-text">
-            Androidアプリは現在クローズドテスト中です。以下から参加登録してください。
+            <a href="https://groups.google.com/g/kasane-testers" target="_blank">Androidアプリは現在クローズドテスト中です。ダウンロードする方はここからGoogle Groupに参加登録してください。</a>
+           <br/> ※参加後は「Androidグローズドテスト」からダウンロードできます
           </p>
 
           <div class="cta-row">
@@ -210,17 +220,14 @@
             </a>
 
             <!-- Android（クローズドテスト） -->
-            <a href="https://play.google.com/apps/testing/co.jp.isystems.task_tracker"
+            <a href="https://play.google.com/store/apps/details?id=co.jp.isystems.task_tracker"
                class="store-button google" aria-label="Android（クローズドテスト）">
               Android（クローズドテスト）
             </a>
           </div>
 
-          <p class="cta-note">
-            ※参加後は
-            <a href="https://play.google.com/store/apps/details?id=co.jp.isystems.task_tracker" target="_blank">Google Play ストアのアプリページ</a>
-            からダウンロードできます。
-          </p>
+
+
         </div>
       </div>
     </section>
