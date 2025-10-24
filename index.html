@@ -113,6 +113,27 @@
       color: var(--teal);
     }
 
+    /* QRコード */
+    .qr-code-section{
+      margin-top: 32px;
+      text-align: center;
+    }
+    .qr-text{
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .qr-code{
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
     /* Features */
     .features{
       background: var(--card);
@@ -227,7 +248,11 @@
             </a>
           </div>
 
-
+          <!-- QRコード -->
+          <div class="qr-code-section">
+            <p class="qr-text">またはQRコードをスキャン</p>
+            <img src="qr_code.png" alt="Kasane アプリQRコード" class="qr-code">
+          </div>
 
         </div>
       </div>
